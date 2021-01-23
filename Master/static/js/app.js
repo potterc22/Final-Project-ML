@@ -120,7 +120,7 @@ function init() {
 
         ranks.forEach((player) => {
             var row = tbody.append("tr");
-            Object.defineProperties(player).forEach(([key, value]) => {
+            Object.entries(player).forEach(([key, value]) => {
                 var cell = row.append("td");
                 cell.text(value)
             });
