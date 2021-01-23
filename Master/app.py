@@ -27,7 +27,7 @@ def home():
 @app.route("/api/table")
 def table_api():
     conn = engine.connect()
-    return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, All-Star Games, HoF FROM master_stats LIMIT 10", conn).to_json(orient='records')
+    return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, 'All-Star Games', HoF FROM master_stats LIMIT 10", conn).to_json(orient='records')
 
 @app.route("/api/search_players")
 def search_api():
