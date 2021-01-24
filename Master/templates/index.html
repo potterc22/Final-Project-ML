@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <title>NHL Hall of Fame Predictor</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../static/css/static.css">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <div class="jumbotron jumbotron-fluid">
@@ -25,16 +25,56 @@
       <a class="navbar-brand" href='#'>
         NHL Hall of Fame Predictor
       </a>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <form class="form-inline" autocomplete="off" action="/action_page.php">
+        <div class="autocomplete">
+          <input class="form-control mr-md-4" type="text" placeholder="Player" name= "selectedPlayer" id="myInput">
+        </div>
+        <input type="submit">
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
       </form>
   </nav>
 
+  <div class="container overview">
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Enter a player in the search bar above to see the results of our analysis. </h4>
+        <h6 class="lead">For our training set, we looked at players that played from 1967 to 2017 with more than 100 games played. We also left goalies out of our dataset to allow us to compare the same stats for every player. We performed our analysis using the following machine learning models: Logistic Regression, Random Forest, XGBoost.</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-header">
+          <h4>Top 10 Players</h4>
+        </div>
+        <div id="table">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="table-head">Player</th>
+                <th class="table-head">GP</th>
+                <th class="table-head">G</th>
+                <th class="table-head">A</th>
+                <th class="table-head">TP</th>
+                <th class="table-head">PPG</th>
+                <th class="table-head">PIM</th>
+                <th class="table-head">POS</th>
+                <th class="table-head">Cups</th>
+                <th class="table-head">All-Star Games</th>
+                <th class="table-head">HoF</th>
+              </tr>
+            </thead>
+            <tbody class="topTenTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-    <script src="..static/js/jquery-3.5.1.slim.min.js"></script>
-    <script src="..static/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    <script src="../static/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 </body>
 
