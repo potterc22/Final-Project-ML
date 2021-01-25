@@ -98,7 +98,7 @@ function autocomplete(inp, arr) {
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
     });
-}
+};
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the players array as possible autocomplete values:*/
 d3.json("/api/search_players").then((players) => {
@@ -107,7 +107,7 @@ d3.json("/api/search_players").then((players) => {
         playersList.push(data.Player)
     })
     autocomplete(document.getElementById("myInput"), playersList)
-})
+});
 
 
 var tbody_topTen = d3.select("table#myTable tbody");
@@ -133,56 +133,64 @@ init()
 
 
 // Create table based on search value
-// var tbody_search = d3.select("table#searchTable tbody");
-// var thead_search = d3.select("table#searchTable thead");
+var tbody_search = d3.select("#searchTable tbody");
+var thead_search = d3.select("#searchTable thead");
 
 
-// function searchTable(searchPlayer) {
-//     d3.select('#searchTable tbody').selectAll('*').remove()
-//     d3.select('#searchTable thead').selectAll('*').remove()
+function searchTable(searchPlayer) {
+    // d3.select('#searchTable tbody').selectAll('*').remove()
+    // d3.select('#searchTable thead').selectAll('*').remove()
 
-//     var columnNames = [
-//         "Player",
-//         "GP",
-//         "G",
-//         "A",
-//         "TP",
-//         "PPG",
-//         "PIM",
-//         "POS",
-//         "Cups",
-//         "All-Star Games",
-//         "HoF",
-//         "FinalValue"
-//     ]
+    // add table header
+    console.log("search player: " + searchPlayer)
 
-//     d3.json("/api/player_search/" + searchPlayer).then((data) => {
-//         var header_row = thead_search.append("tr");
-//         columnNames.forEach((columnName) => {
-//             var cell = header_row.append("th");
-//             cell.text(columnName);
-//         });
-//         data.forEach((player) => {
-//             var row = tbody_search.append("tr");
-//             Object.entries(player).forEach(([key, value]) => {
-//                 var cell = row.append("td");
-//                 cell.text(value)
-//         })
-//     })
-// });
+    var columnNames = [
+        "Player",
+        "GP",
+        "G",
+        "A",
+        "TP",
+        "PPG",
+        "PIM",
+        "POS",
+        "Cups",
+        "All-Star Games",
+        "HoF",
+        "FinalValue"
+    ]
 
-// // Search Bar Event Handler
-// d3.select("#searchButton").on("click", updatePage);
+    d3.json("/api/player_search/" + searchPlayer).then((data) => {
+        var header_row = thead_search.append("tr");
+        columnNames.forEach((columnName) => {
+            var cell = header_row.append("th");
+            console.log("Column Name: " + columnName)
+            cell.text(columnName);
+        });
+        data.forEach((player) => {
+            console.log(player)
+            var row = tbody_search.append("tr");
+            Object.entries(player).forEach(([key, value]) => {
+                var cell = row.append("td");
+                cell.text(value)
+                console.log("Cell Value: " + value)
+            })
+        })
+    })
+}
 
-// function updatePage() {
-//     // assign users selection to a variable
-//     var selection = d3.select('#myInput').value
-//     console.log("Player searched for: " + selection)
+// Search Bar Event Handler
+d3.select("#searchButton").on("click", updatePage);
 
-//     // When the search bar value updates, run the searchTable function
-//     searchTable(selection)
+function updatePage() {
+    // assign users selection to a variable
+    var searchPlayer = d3.select('#myInput').node().value
+    console.log("Player searched for: " + searchPlayer)
+
+    // When the search bar value updates, run the searchTable function
+    searchTable(searchPlayer)
     
-// };
+};
+
 
 
 
@@ -241,5 +249,4 @@ init()
 //           switching = true;
 //         }
 //       }
-//     }
-// };
+//     }}}}}}}

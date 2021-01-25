@@ -34,7 +34,7 @@ def autocomplete_api():
     conn = engine.connect()
     return pd.read_sql("SELECT Player FROM master_stats", conn).to_json(orient='records')
 
-@app.route("/api/player_search/<player>")
+@app.route("/api/player_search/<searchPlayer>")
 def search_api(searchPlayer):
     conn = engine.connect()
     return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, 'All-Star Games', HoF, FinalValue FROM master_stats WHERE Player = '%s'" %searchPlayer, conn).to_json(orient='records')
