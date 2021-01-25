@@ -1,9 +1,0 @@
-.jumbotron {
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), url("../images/hhof.jpg");
-    background-size: cover;
-    height:min-content;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-/* linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%) */

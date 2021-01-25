@@ -25,11 +25,11 @@
       <a class="navbar-brand" href='#'>
         NHL Hall of Fame Predictor
       </a>
-      <form class="form-inline" autocomplete="off" action="/action_page.php">
+      <form id= "myForm" class="form-inline" autocomplete="off" action="/action_page.php">
         <div class="autocomplete">
           <input class="form-control mr-md-4" type="text" placeholder="Player" name= "selectedPlayer" id="myInput">
         </div>
-        <input type="submit">
+        <!-- <input type="submit" id="selection"> -->
         <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
       </form>
   </nav>
@@ -41,13 +41,26 @@
         <h6 class="lead">For our training set, we looked at players that played from 1967 to 2017 with more than 100 games played. We also left goalies out of our dataset to allow us to compare the same stats for every player. We performed our analysis using the following machine learning models: Logistic Regression, Random Forest, XGBoost.</h6>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="searchTable">
+          <table id="searchTable" class="table table-striped">
+            <thead>
+            </thead>
+            <tbody class="searchTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-12">
         <div class="table-header">
           <h4>Top 10 Players</h4>
         </div>
         <div id="table">
-          <table class="table table-striped">
+          <table id="myTable" class="table table-striped">
             <thead>
               <tr>
                 <th class="table-head">Player</th>

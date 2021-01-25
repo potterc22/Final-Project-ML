@@ -110,8 +110,9 @@ d3.json("/api/search_players").then((players) => {
 })
 
 
-var tbody = d3.select("tbody");
+var tbody_topTen = d3.select("table#myTable tbody");
 
+// Create initial top ten table
 function init() {
     var list = d3.select(".topTenTable");
     list.html("");
@@ -119,7 +120,7 @@ function init() {
         console.log(ranks)
 
         ranks.forEach((player) => {
-            var row = tbody.append("tr");
+            var row = tbody_topTen.append("tr");
             Object.entries(player).forEach(([key, value]) => {
                 var cell = row.append("td");
                 cell.text(value)
@@ -129,3 +130,115 @@ function init() {
 };
 
 init()
+
+
+// Create table based on search value
+// var tbody_search = d3.select("table#searchTable tbody");
+// var thead_search = d3.select("table#searchTable thead");
+
+
+// function searchTable(searchPlayer) {
+//     d3.select('#searchTable tbody').selectAll('*').remove()
+//     d3.select('#searchTable thead').selectAll('*').remove()
+
+//     var columnNames = [
+//         "Player",
+//         "GP",
+//         "G",
+//         "A",
+//         "TP",
+//         "PPG",
+//         "PIM",
+//         "POS",
+//         "Cups",
+//         "All-Star Games",
+//         "HoF",
+//     ]
+
+//     d3.json("/api/player_search/" + searchPlayer).then((data) => {
+//         var header_row = thead_search.append("tr");
+//         columnNames.forEach((columnName) => {
+//             var cell = header_row.append("th");
+//             cell.text(columnName);
+//         });
+//         data.forEach((player) => {
+//             var row = tbody_search.append("tr");
+//             Object.entries(player).forEach(([key, value]) => {
+//                 var cell = row.append("td");
+//                 cell.text(value)
+//         })
+//     })
+// });
+
+// // Search Bar Event Handler
+// d3.select("#myInput").on("change", updatePage);
+
+// function updatePage() {
+//     // assign users selection to a variable
+//     var selection = d3.select('#myInput').node().value
+//     console.log("Player searched for: " + selection)
+
+//     // When the search bar value updates, run the searchTable function
+//     searchTable(selection)
+    
+// };
+
+
+
+
+// Create a function to sort the table
+
+// function sortTable(n) {
+//     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+//     table = document.getElementById("myTable");
+//     switching = true;
+//     //Set the sorting direction to ascending:
+//     dir = "asc"; 
+//     /*Make a loop that will continue until
+//     no switching has been done:*/
+//     while (switching) {
+//       //start by saying: no switching is done:
+//       switching = false;
+//       rows = table.rows;
+//       /*Loop through all table rows (except the
+//       first, which contains table headers):*/
+//       for (i = 1; i < (rows.length - 1); i++) {
+//         //start by saying there should be no switching:
+//         shouldSwitch = false;
+//         /*Get the two elements you want to compare,
+//         one from current row and one from the next:*/
+//         x = rows[i].getElementsByTagName("TD")[n];
+//         y = rows[i + 1].getElementsByTagName("TD")[n];
+//         /*check if the two rows should switch place,
+//         based on the direction, asc or desc:*/
+//         if (dir == "asc") {
+//           if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+//             //if so, mark as a switch and break the loop:
+//             shouldSwitch= true;
+//             break;
+//           }
+//         } else if (dir == "desc") {
+//           if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+//             //if so, mark as a switch and break the loop:
+//             shouldSwitch = true;
+//             break;
+//           }
+//         }
+//       }
+//       if (shouldSwitch) {
+//         /*If a switch has been marked, make the switch
+//         and mark that a switch has been done:*/
+//         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+//         switching = true;
+//         //Each time a switch is done, increase this count by 1:
+//         switchcount ++;      
+//       } else {
+//         /*If no switching has been done AND the direction is "asc",
+//         set the direction to "desc" and run the while loop again.*/
+//         if (switchcount == 0 && dir == "asc") {
+//           dir = "desc";
+//           switching = true;
+//         }
+//       }
+//     }
+// };
