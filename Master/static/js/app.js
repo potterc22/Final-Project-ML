@@ -138,11 +138,11 @@ var thead_search = d3.select("#searchTable thead");
 
 
 function searchTable(searchPlayer) {
-    // d3.select('#searchTable tbody').selectAll('*').remove()
-    // d3.select('#searchTable thead').selectAll('*').remove()
+    d3.select('#searchTable tbody').selectAll('*').remove()
+    d3.select('#searchTable thead').selectAll('*').remove()
 
     // add table header
-    console.log("search player: " + searchPlayer)
+
 
     var columnNames = [
         "Player",
@@ -160,19 +160,20 @@ function searchTable(searchPlayer) {
     ]
 
     d3.json("/api/player_search/" + searchPlayer).then((data) => {
+        // console.log("Data: " + data)
         var header_row = thead_search.append("tr");
         columnNames.forEach((columnName) => {
             var cell = header_row.append("th");
-            console.log("Column Name: " + columnName)
+            // console.log("Column Name: " + columnName)
             cell.text(columnName);
         });
         data.forEach((player) => {
-            console.log(player)
+            // console.log("Player: " + player)
             var row = tbody_search.append("tr");
             Object.entries(player).forEach(([key, value]) => {
                 var cell = row.append("td");
                 cell.text(value)
-                console.log("Cell Value: " + value)
+                // console.log("Cell Value: " + value)
             })
         })
     })
