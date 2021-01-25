@@ -153,6 +153,7 @@ init()
 //         "Cups",
 //         "All-Star Games",
 //         "HoF",
+//         "FinalValue"
 //     ]
 
 //     d3.json("/api/player_search/" + searchPlayer).then((data) => {
@@ -171,11 +172,11 @@ init()
 // });
 
 // // Search Bar Event Handler
-// d3.select("#myInput").on("change", updatePage);
+// d3.select("#searchButton").on("click", updatePage);
 
 // function updatePage() {
 //     // assign users selection to a variable
-//     var selection = d3.select('#myInput').node().value
+//     var selection = d3.select('#myInput').value
 //     console.log("Player searched for: " + selection)
 
 //     // When the search bar value updates, run the searchTable function

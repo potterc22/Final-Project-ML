@@ -25,13 +25,13 @@
       <a class="navbar-brand" href='#'>
         NHL Hall of Fame Predictor
       </a>
-      <form id= "myForm" class="form-inline" autocomplete="off" action="/action_page.php">
+      <!-- <form id= "myForm" class="form-inline" autocomplete="off" action="/action_page.php"> -->
         <div class="autocomplete">
-          <input class="form-control mr-md-4" type="text" placeholder="Player" name= "selectedPlayer" id="myInput">
+          <input class="form-inline mr-md-4" type="text" placeholder="Player" name= "selectedPlayer" id="myInput">
         </div>
         <!-- <input type="submit" id="selection"> -->
-        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-      </form>
+        <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <!-- </form> -->
   </nav>
 
   <div class="container overview">
@@ -74,6 +74,7 @@
                 <th class="table-head">Cups</th>
                 <th class="table-head">All-Star Games</th>
                 <th class="table-head">HoF</th>
+                <th class="table-head">FinalValue</th>
               </tr>
             </thead>
             <tbody class="topTenTable"></tbody>

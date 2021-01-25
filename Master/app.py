@@ -8,7 +8,7 @@ import json
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///data/NHL_stats.sqlite")
+engine = create_engine("sqlite:///data/NHL_final_stats.sqlite")
 
 
 #################################################
@@ -27,7 +27,7 @@ def home():
 @app.route("/api/table")
 def table_api():
     conn = engine.connect()
-    return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, 'All-Star Games', HoF FROM master_stats LIMIT 10", conn).to_json(orient='records')
+    return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, 'All-Star Games', HoF, FinalValue FROM master_stats LIMIT 10", conn).to_json(orient='records')
 
 @app.route("/api/search_players")
 def autocomplete_api():
@@ -37,7 +37,7 @@ def autocomplete_api():
 @app.route("/api/player_search/<player>")
 def search_api(searchPlayer):
     conn = engine.connect()
-    return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, 'All-Star Games', HoF FROM master_stats WHERE Player = '%s'" %searchPlayer, conn).to_json(orient='records')
+    return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, 'All-Star Games', HoF, FinalValue FROM master_stats WHERE Player = '%s'" %searchPlayer, conn).to_json(orient='records')
 
 if __name__ == "__main__":
     app.run()
