@@ -140,9 +140,10 @@ var thead_search = d3.select("#searchTable thead");
 function searchTable(searchPlayer) {
     d3.select('#searchTable tbody').selectAll('*').remove()
     d3.select('#searchTable thead').selectAll('*').remove()
+    d3.select('.searchHeader').selectAll('*').remove()
 
     // add table header
-
+    d3.select(".searchHeader").append("h4").text('Search Results')
 
     var columnNames = [
         "Player",
@@ -184,12 +185,40 @@ d3.select("#searchButton").on("click", updatePage);
 
 function updatePage() {
     // assign users selection to a variable
-    var searchPlayer = d3.select('#myInput').node().value
-    console.log("Player searched for: " + searchPlayer)
-
-    // When the search bar value updates, run the searchTable function
-    searchTable(searchPlayer)
+    // var searchPlayer = d3.select('#myInput').node().value
     
+
+    // d3.json("/api/search_players").then((players) => {
+        var searchPlayer = d3.select('#myInput').node().value
+        console.log("Player searched for: " + searchPlayer)
+        
+        // var playersList = []
+        // players.forEach(function(data) {
+        //     playersList.push(data.Player)
+        // })
+        // console.log(playersList)
+        
+        // // Create error handling for bad searches
+        // playersList.forEach((player, index, playersList) => {
+            
+        //     if (searchPlayer === player) {
+        //         searchTable(searchPlayer)
+        //     }
+        //     else {
+        //         if (index != playersList.length - 1) {
+        //             continue
+        //         }
+        //         else {
+        //             alert("There is no player by that name")
+        //         }
+        //     }
+        // });
+        // alert("There is no player by that name")
+        
+
+        // When the search bar value updates, run the searchTable function
+        searchTable(searchPlayer)
+    // });
 };
 
 
