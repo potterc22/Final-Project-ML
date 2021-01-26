@@ -30,7 +30,7 @@
           <!-- class="mr-md-4" -->
           <input type="text" placeholder="Player" name= "selectedPlayer" id="myInput">
         </div>
-        <button id="resetButton" class="btn btn-outline-danger my-2 my-sm-0">Reset</button>
+        <button id="resetButton" class="btn btn-outline-danger my-2 my-sm-0" type="submit">Reset</button>
         <!-- <input type="submit" id="selection"> -->
         <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       <!-- </form> -->
@@ -60,7 +60,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="table-header">
-          <h4>Top 10 Players</h4>
+          <h4>Top 10 HoF Players</h4>
         </div>
         <div id="table">
           <table id="myTable" class="table table-striped">
@@ -81,6 +81,35 @@
               </tr>
             </thead>
             <tbody class="topTenTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-header">
+          <h4>Top 10 Eligible Players</h4>
+        </div>
+        <div id="table">
+          <table id="eligibleTable" class="table table-striped">
+            <thead>
+              <tr>
+                <th class="table-head">Player</th>
+                <th class="table-head">GP</th>
+                <th class="table-head">G</th>
+                <th class="table-head">A</th>
+                <th class="table-head">TP</th>
+                <th class="table-head">PPG</th>
+                <th class="table-head">PIM</th>
+                <th class="table-head">POS</th>
+                <th class="table-head">Cups</th>
+                <th class="table-head">All-Star Games</th>
+                <th class="table-head">HoF</th>
+                <th class="table-head">FinalValue</th>
+              </tr>
+            </thead>
+            <tbody class="topTenEligible"></tbody>
           </table>
         </div>
       </div>

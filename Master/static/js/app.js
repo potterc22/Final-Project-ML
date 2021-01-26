@@ -110,17 +110,34 @@ d3.json("/api/search_players").then((players) => {
 });
 
 
-var tbody_topTen = d3.select("table#myTable tbody");
+var tbody_topTenHoF = d3.select("table#myTable tbody");
+var tbody_topTenElig = d3.select("table#eligibleTable tbody");
 
-// Create initial top ten table
+// Create initial page
 function init() {
+    // Create top 10 HoF table
     var list = d3.select(".topTenTable");
     list.html("");
-    d3.json("/api/table").then((ranks) => {
+    d3.json("/api/HoFTable").then((ranks) => {
         console.log(ranks)
 
         ranks.forEach((player) => {
-            var row = tbody_topTen.append("tr");
+            var row = tbody_topTenHoF.append("tr");
+            Object.entries(player).forEach(([key, value]) => {
+                var cell = row.append("td");
+                cell.text(value)
+            });
+        });
+    });
+
+    // Create top 10 Eligible table
+    var list = d3.select(".topTenEligible");
+    list.html("");
+    d3.json("/api/otherTable").then((ranks) => {
+        console.log(ranks)
+
+        ranks.forEach((player) => {
+            var row = tbody_topTenElig.append("tr");
             Object.entries(player).forEach(([key, value]) => {
                 var cell = row.append("td");
                 cell.text(value)
@@ -142,8 +159,10 @@ function searchTable(searchPlayer) {
     d3.select('#searchTable thead').selectAll('*').remove()
     d3.select('.searchHeader').selectAll('*').remove()
 
-    // add table header
+    // add line break and table header
+    d3.select(".searchHeader").append("br")
     d3.select(".searchHeader").append("h4").text('Search Results')
+    
 
     var columnNames = [
         "Player",
@@ -178,6 +197,8 @@ function searchTable(searchPlayer) {
             })
         })
     })
+
+    
 }
 
 // Search Bar Event Handler
@@ -188,17 +209,25 @@ function updatePage() {
     // var searchPlayer = d3.select('#myInput').node().value
     
 
-    // d3.json("/api/search_players").then((players) => {
+    d3.json("/api/search_players").then((players) => {
         var searchPlayer = d3.select('#myInput').node().value
         console.log("Player searched for: " + searchPlayer)
         
-        // var playersList = []
-        // players.forEach(function(data) {
-        //     playersList.push(data.Player)
-        // })
-        // console.log(playersList)
+        var playersList = []
+        players.forEach(function(data) {
+            playersList.push(data.Player)
+        })
+        console.log(playersList)
         
-        // // Create error handling for bad searches
+        // Create error handling for bad searches
+        if (playersList.includes(searchPlayer) === true) {
+            searchTable(searchPlayer)
+        }
+        else {
+            alert("Invalid Player Search")
+        }
+
+
         // playersList.forEach((player, index, playersList) => {
             
         //     if (searchPlayer === player) {
@@ -217,13 +246,13 @@ function updatePage() {
         
 
         // When the search bar value updates, run the searchTable function
-        searchTable(searchPlayer)
-    // });
+        // searchTable(searchPlayer)
+    });
 };
 
 function reset() {
     // Clear search box
-    d3.select('#myInput').value = ''
+    d3.select('#myInput').html('')
 
     // Clear search table and header
     d3.select('#searchTable tbody').selectAll('*').remove()
