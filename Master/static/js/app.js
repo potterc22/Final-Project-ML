@@ -221,7 +221,18 @@ function updatePage() {
     // });
 };
 
+function reset() {
+    // Clear search box
+    d3.select('#myInput').value = ''
 
+    // Clear search table and header
+    d3.select('#searchTable tbody').selectAll('*').remove()
+    d3.select('#searchTable thead').selectAll('*').remove()
+    d3.select('.searchHeader').selectAll('*').remove()
+}
+
+// Reset Event Handler
+d3.select("#resetButton").on("click", reset);
 
 
 
