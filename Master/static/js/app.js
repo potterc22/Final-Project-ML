@@ -1,7 +1,42 @@
-// Create Initial page
+var tbody_topTenHoF = d3.select("table#myTable tbody");
+var tbody_topTenElig = d3.select("table#eligibleTable tbody");
 
+// Create initial page
+function init() {
+    // Create top 10 HoF table
+    var list = d3.select(".topTenTable");
+    list.html("");
+    d3.json("/api/HoFTable").then((ranks) => {
+        console.log(ranks)
 
+        ranks.forEach((player) => {
+            var row = tbody_topTenHoF.append("tr");
+            Object.entries(player).forEach(([key, value]) => {
+                var cell = row.append("td");
+                cell.text(value)
+            });
+        });
+    });
 
+    // Create top 10 Eligible table
+    var list = d3.select(".topTenEligible");
+    list.html("");
+    d3.json("/api/otherTable").then((ranks) => {
+        console.log(ranks)
+
+        ranks.forEach((player) => {
+            var row = tbody_topTenElig.append("tr");
+            Object.entries(player).forEach(([key, value]) => {
+                var cell = row.append("td");
+                cell.text(value)
+            });
+        });
+    });
+};
+
+init()
+
+// Create function to autocomplete search bar
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -110,41 +145,21 @@ d3.json("/api/search_players").then((players) => {
 });
 
 
-var tbody_topTen = d3.select("table#myTable tbody");
-
-// Create initial top ten table
-function init() {
-    var list = d3.select(".topTenTable");
-    list.html("");
-    d3.json("/api/table").then((ranks) => {
-        console.log(ranks)
-
-        ranks.forEach((player) => {
-            var row = tbody_topTen.append("tr");
-            Object.entries(player).forEach(([key, value]) => {
-                var cell = row.append("td");
-                cell.text(value)
-            });
-        });
-    });
-};
-
-init()
-
-
-// Create table based on search value
+// Create Variables for search table body and header
 var tbody_search = d3.select("#searchTable tbody");
 var thead_search = d3.select("#searchTable thead");
 
-
+// Create table based on search value
 function searchTable(searchPlayer) {
     d3.select('#searchTable tbody').selectAll('*').remove()
     d3.select('#searchTable thead').selectAll('*').remove()
     d3.select('.searchHeader').selectAll('*').remove()
 
-    // add table header
+    // add line break and table header
+    d3.select(".searchHeader").append("br")
     d3.select(".searchHeader").append("h4").text('Search Results')
-
+    
+    // Create columnNames array to append as table headers
     var columnNames = [
         "Player",
         "GP",
@@ -178,52 +193,41 @@ function searchTable(searchPlayer) {
             })
         })
     })
+
+
 }
 
 // Search Bar Event Handler
 d3.select("#searchButton").on("click", updatePage);
 
 function updatePage() {
-    // assign users selection to a variable
-    // var searchPlayer = d3.select('#myInput').node().value
-    
-
-    // d3.json("/api/search_players").then((players) => {
+     
+    d3.json("/api/search_players").then((players) => {
+        // assign users selection to a variable
         var searchPlayer = d3.select('#myInput').node().value
         console.log("Player searched for: " + searchPlayer)
         
-        // var playersList = []
-        // players.forEach(function(data) {
-        //     playersList.push(data.Player)
-        // })
-        // console.log(playersList)
+        // Create array of players to check for valid searches
+        var playersList = []
+        players.forEach(function(data) {
+            playersList.push(data.Player)
+        })
+        console.log(playersList)
         
-        // // Create error handling for bad searches
-        // playersList.forEach((player, index, playersList) => {
-            
-        //     if (searchPlayer === player) {
-        //         searchTable(searchPlayer)
-        //     }
-        //     else {
-        //         if (index != playersList.length - 1) {
-        //             continue
-        //         }
-        //         else {
-        //             alert("There is no player by that name")
-        //         }
-        //     }
-        // });
-        // alert("There is no player by that name")
-        
-
-        // When the search bar value updates, run the searchTable function
-        searchTable(searchPlayer)
-    // });
+        // Create error handling for invalid searches
+        if (playersList.includes(searchPlayer) === true) {
+            searchTable(searchPlayer)
+        }
+        else {
+            alert("Invalid Player Search")
+        }
+    });
 };
 
+// Create function to clear the search table and clear the search box
 function reset() {
     // Clear search box
-    d3.select('#myInput').value = ''
+    document.getElementById('myInput').value = ''
 
     // Clear search table and header
     d3.select('#searchTable tbody').selectAll('*').remove()

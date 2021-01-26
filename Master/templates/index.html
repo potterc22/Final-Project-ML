@@ -21,19 +21,21 @@
   </div>
 
 
-  <nav class="navbar navbar-light bg-light justify-content-between">
-      <a class="navbar-brand" href='#'>
-        NHL Hall of Fame Predictor
-      </a>
-      <!-- <form id= "myForm" class="form-inline" autocomplete="off" action="/action_page.php"> -->
-        <div class="autocomplete">
-          <!-- class="mr-md-4" -->
-          <input type="text" placeholder="Player" name= "selectedPlayer" id="myInput">
+  <nav class="navbar navbar-light bg-light">
+
+        <a class="navbar-brand active" href='#'>NHL Hall of Fame Predictor</a>
+        <a class="navbar-brand" href="overview">Overview</a>
+
+        <div class="search">
+          <div class="autocomplete">
+
+            <input type="text" placeholder="Player" name= "selectedPlayer" id="myInput">
+          </div>
+          <button id="resetButton" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+            Reset</button>
+          <!-- <input type="submit" id="selection"> -->
+          <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </div>
-        <button id="resetButton" class="btn btn-outline-danger my-2 my-sm-0">Reset</button>
-        <!-- <input type="submit" id="selection"> -->
-        <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      <!-- </form> -->
   </nav>
 
   <div class="container overview">
@@ -60,7 +62,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="table-header">
-          <h4>Top 10 Players</h4>
+          <h4>Top 10 HoF Players</h4>
         </div>
         <div id="table">
           <table id="myTable" class="table table-striped">
@@ -81,6 +83,35 @@
               </tr>
             </thead>
             <tbody class="topTenTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-header">
+          <h4>Top 10 Eligible Players</h4>
+        </div>
+        <div id="table">
+          <table id="eligibleTable" class="table table-striped">
+            <thead>
+              <tr>
+                <th class="table-head">Player</th>
+                <th class="table-head">GP</th>
+                <th class="table-head">G</th>
+                <th class="table-head">A</th>
+                <th class="table-head">TP</th>
+                <th class="table-head">PPG</th>
+                <th class="table-head">PIM</th>
+                <th class="table-head">POS</th>
+                <th class="table-head">Cups</th>
+                <th class="table-head">All-Star Games</th>
+                <th class="table-head">HoF</th>
+                <th class="table-head">FinalValue</th>
+              </tr>
+            </thead>
+            <tbody class="topTenEligible"></tbody>
           </table>
         </div>
       </div>
