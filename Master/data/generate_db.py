@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 
 # Read in master stats file and convert it to a dataframe
-csv_file = "../../Jeff/Output/master_stats_file_final_values.csv"
+csv_file = "master_stats_file_final_values.csv"
 master_stats_df = pd.read_csv(csv_file)
 
 # Save this to sqllite

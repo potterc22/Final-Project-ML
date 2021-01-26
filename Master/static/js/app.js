@@ -172,7 +172,7 @@ function searchTable(searchPlayer) {
         "Cups",
         "All-Star Games",
         "HoF",
-        "FinalValue"
+        "HoF Probability"
     ]
 
     d3.json("/api/player_search/" + searchPlayer).then((data) => {
