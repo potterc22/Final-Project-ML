@@ -73,3 +73,9 @@ table {
     display: inline;
     float: right;
 }
+
+.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
