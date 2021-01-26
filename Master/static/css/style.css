@@ -68,3 +68,8 @@ table {
   th {
     cursor: pointer;
   }
+
+.search {
+    display: inline;
+    float: right;
+}
