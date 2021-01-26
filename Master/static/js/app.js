@@ -227,7 +227,7 @@ function updatePage() {
 // Create function to clear the search table and clear the search box
 function reset() {
     // Clear search box
-    d3.select('#myInput').html('')
+    document.getElementById('myInput').value = ''
 
     // Clear search table and header
     d3.select('#searchTable tbody').selectAll('*').remove()
