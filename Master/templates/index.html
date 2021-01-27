@@ -12,11 +12,14 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-3">NHL Hall of Fame</h1>
-      <h2 class="lead">An elected 18-person selection committee votes on Hall of Fame induction.
+      <h2 class="lead active">An elected 18-person selection committee votes on Hall of Fame induction.
         Have they been correct?
       </h2>
       <hr>
-      <h2 class='lead'>This site uses Machine Learning techniques to predict which NHL players should be in the Hockey Hall of Fame in Toronto.</h2>
+      <h2 class="lead active">
+        Nominees are judged on player stats, as well as their playing ability, sportsmanship, character and contributions to his team or teams and to the game of hockey in general.
+      </h2>
+      
     </div>
   </div>
 
@@ -35,7 +38,7 @@
               <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="overview.html">Overview</a>
+              <a class="nav-link" href="overview">Overview</a>
             </li>
           </ul>
         
@@ -64,7 +67,7 @@
     <div class="row">
       <div class="col-md-12">
         <h4>Enter a player in the search bar above to see the results of our analysis. </h4>
-        <h6 class="lead">We performed our analysis using the following machine learning models: Logistic Regression, Random Forest, XGBoost. For our training set, we looked at players that played from 1967 to 2017 with more than 100 games played. We also left goalies out of our dataset to allow us to compare the same stats for every player. Forwards are represented with POS = 1 and defenders are POS = 2.</h6>
+        <h6 class="lead">This site uses Machine Learning techniques to predict which NHL players should be in the Hockey Hall of Fame in Toronto. We performed our analysis using the following machine learning models: Logistic Regression, Random Forest, XGBoost. For our training set, we looked at players that played from 1967 to 2017 with more than 100 games played. We also left goalies out of our dataset to allow us to compare the same stats for every player. Forwards are represented with POS = 1 and defenders are POS = 2.</h6>
       </div>
     </div>
 
@@ -100,6 +103,7 @@
                 <th class="table-head">POS</th>
                 <th class="table-head">Cups</th>
                 <th class="table-head">All-Star Games</th>
+                <th class="table-head">Awards</th>
                 <th class="table-head">HoF</th>
                 <th class="table-head">HoF Probability</th>
               </tr>
@@ -129,6 +133,7 @@
                 <th class="table-head">POS</th>
                 <th class="table-head">Cups</th>
                 <th class="table-head">All-Star Games</th>
+                <th class="table-head">Awards</th>
                 <th class="table-head">HoF</th>
                 <th class="table-head">HoF Probability</th>
               </tr>

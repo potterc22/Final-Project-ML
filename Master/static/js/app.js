@@ -171,6 +171,7 @@ function searchTable(searchPlayer) {
         "POS",
         "Cups",
         "All-Star Games",
+        "Awards",
         "HoF",
         "HoF Probability"
     ]
