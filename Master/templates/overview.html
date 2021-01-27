@@ -31,29 +31,32 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Overview<span class="sr-only">(current)</span></a>
+          <a class="nav-link active" href="#">Overview<span class="sr-only">(current)</span></a>
         </li>
       </ul>
     
      <!-- <a class="navbar-link" href="overview.html">Overview</a> -->
-     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Player" aria-label="Search" id="myInput">
+     <!-- <form class="form-inline my-2 my-lg-0"> -->
+      <div class="autocomplete">
+        <input class="form-control mr-sm-2" type="text" placeholder="Player" aria-label="Search" id="myInput">
+      </div>
       <button id="resetButton" class="btn btn-outline-danger my-2 my-sm-0" type="submit">Reset</button>
       <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-     </form>
+     <!-- </form> -->
     </div>
   </nav>
 
-  <div class="row">
-    <div class="col-md-8">
-        <h1>Overview</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Overview</h2>
+            </div>
+        </div>
     </div>
-  </div>    
-
 
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
   <script src="../static/js/jquery-3.5.1.slim.min.js"></script>
