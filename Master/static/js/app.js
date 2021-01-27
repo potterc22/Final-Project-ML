@@ -7,7 +7,7 @@ function init() {
     var list = d3.select(".topTenTable");
     list.html("");
     d3.json("/api/HoFTable").then((ranks) => {
-        console.log(ranks)
+        // console.log(ranks)
 
         ranks.forEach((player) => {
             var row = tbody_topTenHoF.append("tr");
@@ -22,7 +22,7 @@ function init() {
     var list = d3.select(".topTenEligible");
     list.html("");
     d3.json("/api/otherTable").then((ranks) => {
-        console.log(ranks)
+        // console.log(ranks)
 
         ranks.forEach((player) => {
             var row = tbody_topTenElig.append("tr");
@@ -212,7 +212,7 @@ function updatePage() {
         players.forEach(function(data) {
             playersList.push(data.Player)
         })
-        console.log(playersList)
+        // console.log(playersList)
         
         // Create error handling for invalid searches
         if (playersList.includes(searchPlayer) === true) {

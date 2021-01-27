@@ -6,7 +6,7 @@
   <title>NHL Hall of Fame Predictor</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
   <div class="jumbotron jumbotron-fluid">
@@ -21,20 +21,42 @@
   </div>
 
 
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <a class="navbar-brand active" href='#'>NHL Hall of Fame Predictor</a>
-        <a class="navbar-brand" href="overview">Overview</a>
+        <a class="navbar-brand" href='#'>NHL Hall of Fame Predictor</a>
 
-        <div class="search">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="overview.html">Overview</a>
+            </li>
+          </ul>
+        
+         <!-- <a class="navbar-link" href="overview.html">Overview</a> -->
+         <!-- <form class="form-inline my-2 my-lg-0"> -->
           <div class="autocomplete">
-
-            <input type="text" placeholder="Player" name= "selectedPlayer" id="myInput">
+            <input class="form-control mr-sm-2" type="text" placeholder="Player" aria-label="Search" id="myInput">
           </div>
-          <button id="resetButton" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
-            Reset</button>
-          <!-- <input type="submit" id="selection"> -->
+          <button id="resetButton" class="btn btn-outline-danger my-2 my-sm-0" type="submit">Reset</button>
           <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <!-- </form> -->
+          <!-- <div class="search">
+            <div class="autocomplete">
+
+              <input type="text" placeholder="Player" name= "selectedPlayer" id="myInput">
+            </div>
+            <button id="resetButton" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+              Reset</button>
+             <input type="submit" id="selection"> -->
+            <!-- <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </div> --> 
         </div>
   </nav>
 
@@ -42,7 +64,7 @@
     <div class="row">
       <div class="col-md-12">
         <h4>Enter a player in the search bar above to see the results of our analysis. </h4>
-        <h6 class="lead">For our training set, we looked at players that played from 1967 to 2017 with more than 100 games played. We also left goalies out of our dataset to allow us to compare the same stats for every player. We performed our analysis using the following machine learning models: Logistic Regression, Random Forest, XGBoost.</h6>
+        <h6 class="lead">We performed our analysis using the following machine learning models: Logistic Regression, Random Forest, XGBoost. For our training set, we looked at players that played from 1967 to 2017 with more than 100 games played. We also left goalies out of our dataset to allow us to compare the same stats for every player. Forwards are represented with POS = 1 and defenders are POS = 2.</h6>
       </div>
     </div>
 
