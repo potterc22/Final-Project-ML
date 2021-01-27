@@ -72,7 +72,19 @@
                 </ul>  
                 <br>
                 <h4>Machine Learning</h4>
-                <p></p>
+                <p>This dataset was challenging to work with because it was imbalanced. There have been very few players inducted into the 
+                  Hockey Hall of Fame compared to the number of total players. After running a few tests, we decided to limit our train-test 
+                  scope to only players with a minimum 100 games played and players with their first season >= 1967. 1967 was the year the NHL 
+                  first expanded from the original 6 teams to 12 teams. We tested 3 different classification models: Logistic Regression, 
+                  Random Forest, and XG Boost. The Random Forest and XGBoost models were the most accurate, but far from great. The sampling of 
+                  the dataset was an issue. All it had to do was predict 'No' and it was correct 99% of the time. Only 2.5% of the players are 
+                  in the Hall of Fame. In order to address the imbalance, we decided to use RandomizedSearchCV from the Scikit-learn package. 
+                  The updated model produced more realistic results. After training, we decided to run all of the data for players back through 
+                  the model to check the output for players who were already in the Hall of Fame, the players that were overlooked, and players 
+                  that were not eligible but should be in the Hall. The model provided HoF probabilities less than 68% for 10 current HoF inductees. 
+                  Since the HoF selection committee focuses on more than stats, we concluded that there are factors not captured by our model 
+                  (College career, coachin career, Olympic career etc.)
+                </p>
                 <br>
                 <h4>Findings</h4>
                 <p></p>
