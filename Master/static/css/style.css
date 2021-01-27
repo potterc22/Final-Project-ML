@@ -76,6 +76,12 @@ table {
 
 .active {
     font-weight: bold;
-    text-decoration: underline;
 }
 
+.btn {
+    margin-left: 10px;
+}
+
+.nav-link {
+    font-size: 20px;
+}
