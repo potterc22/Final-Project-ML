@@ -163,6 +163,7 @@ function searchTable(searchPlayer) {
     // Create columnNames array to append as table headers
     var columnNames = [
         "Player",
+        "Last Year",
         "GP",
         "G",
         "A",
@@ -171,7 +172,7 @@ function searchTable(searchPlayer) {
         "PIM",
         "POS",
         "Cups",
-        "All-Star Games",
+        "All-Star",
         "Awards",
         "HoF",
         "HoF Probability"

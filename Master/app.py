@@ -31,12 +31,12 @@ def overview():
 @app.route("/api/HoFTable")
 def HoF_table_api():
     conn = engine.connect()
-    return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, All_Star_Games, Awards, HoF, HoF_Probability FROM master_stats WHERE HoF = 1 ORDER BY HoF_Probability desc LIMIT 10", conn).to_json(orient='records')
+    return pd.read_sql("SELECT Player, lastYear, GP, G, A, TP, PPG, PIM, POS, Cups, All_Star_Games, Awards, HoF, HoF_Probability FROM master_stats WHERE HoF = 1 ORDER BY HoF_Probability desc LIMIT 10", conn).to_json(orient='records')
 
 @app.route("/api/otherTable")
 def otherTable():
     conn = engine.connect()
-    return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, All_Star_Games, Awards, HoF, HoF_Probability FROM master_stats WHERE HoF = 0 ORDER BY HoF_Probability desc LIMIT 10", conn).to_json(orient='records')
+    return pd.read_sql("SELECT Player, lastYear, GP, G, A, TP, PPG, PIM, POS, Cups, All_Star_Games, Awards, HoF, HoF_Probability FROM master_stats WHERE HoF = 0 ORDER BY HoF_Probability desc LIMIT 10", conn).to_json(orient='records')
 
 @app.route("/api/search_players")
 def autocomplete_api():
@@ -46,7 +46,7 @@ def autocomplete_api():
 @app.route("/api/player_search/<searchPlayer>")
 def search_api(searchPlayer):
     conn = engine.connect()
-    return pd.read_sql("SELECT Player, GP, G, A, TP, PPG, PIM, POS, Cups, All_Star_Games, Awards, HoF, HoF_Probability FROM master_stats WHERE Player = '%s'" %searchPlayer, conn).to_json(orient='records')
+    return pd.read_sql("SELECT Player, lastYear, GP, G, A, TP, PPG, PIM, POS, Cups, All_Star_Games, Awards, HoF, HoF_Probability FROM master_stats WHERE Player = '%s'" %searchPlayer, conn).to_json(orient='records')
 
 if __name__ == "__main__":
     app.run()
