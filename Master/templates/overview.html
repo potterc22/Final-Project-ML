@@ -99,7 +99,12 @@
                   <img src="../static/images/BoostModel_FeatureImpact.PNG" style="display:block; margin: 0 auto" alt="alt text">
                 <br>
                 <br>
-                <h5>Boost Model Feature Summary </h5>
+                <h5>Boost Model Feature Summary </h5><br>
+                The summary plot combines feature importance with feature effects. Each point on the summary plot is a Shapley value for a 
+                feature and an instance. The position on the y-axis is determined by the feature and on the x-axis by the Shapley value. 
+                The color represents the value of the feature from low to high. Overlapping points are jittered in y-axis direction, so we 
+                get a sense of the distribution of the Shapley values per feature. The features are ordered according to their importance.<br>
+                Source: <a href="https://christophm.github.io/interpretable-ml-book/shap.html">https://christophm.github.io/interpretable-ml-book/shap.html</a><br>
                   <img src="../static/images/BoostModel_FeatureSummary.PNG" style="display:block; margin: 0 auto" alt="alt text">
                 <br>
                 <br>
@@ -119,13 +124,24 @@
                   effects are relative to the intercept.</li>
                   <li>Source: <a href="https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a">https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a</a></li>
                 </ul>
-                  <br>        
+                  <br><br>
+                  <h5>Shapley Force - Model Differences   </h5>
+                  <br>
+                  <h6>      Steve Yzerman - Boost Model   </h6> 
+                  The Boost Model calculates the <b>log-odds</b> of each feature's impact on the output of the model. In order to convert to a probability, we used the formula <br>
+                   <b>y = e^x / (1+e^x)</b><br>
+                   The output of the boost model calculates the likelihood of 'HoF' = 1. In this case, 14.27 converts to 99.999937%. Which makes sense, because he is a HoF member.<br>      
                   <img src="../static/images/SteveYzerman_BoostModel.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br><br>
+                  <br><br>
+                
+                  <h6>      Steve Yzerman - Forest Model   </h6> 
+                  The Forest Model calculates the probability of 'HoF' = 1. You can also see that the features have different impacts than the Boost Model predicted.<br>
+                  For this example, both Models correctlly predicted that Steve Yzerman should be/will be in the Hall of Fame.<br>
                   <img src="../static/images/SteveYzerman_ForestModel.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br><br>
 
             </div>
         </div>
-
+        <h5>Various Findings from the Boost Model</h5><br>
         <div class="row">
           <div class="col-md-6">
             <img src="../static/images/Lowest_Prob.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br>
@@ -154,6 +170,8 @@
                 <li>Ability to search by a team to see all of their players.</li>
                 <li>Add interactive shapley value visuals.</li>
                 <li>Ability to trend current players to predict HoF probability at end of their career.</li>
+                <li>Select an NHL team to see HoF probabilities of their current roster.</li>
+                <li>Link to player images via API after search</li>
                     
             </ul>
             <br>
