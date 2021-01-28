@@ -90,24 +90,35 @@
                   (College career, coaching career, Olympic career etc.)
                 <br>
                 <br>
-                Dataset Class Split  
+                <h5>Dataset Class Split  </h5>
                   <!-- <img src="../static/images/Dataset_split.PNG" style="display:block; margin: 0 auto" alt="alt text"> -->
                   <img src="../static/images/Dataset_split.PNG" style="display:block; margin: 0 auto" alt="alt text">
                 <br>
                 <br>
-                Boost Model Feature Impact 
+                <h5>Boost Model Feature Impact </h5>
                   <img src="../static/images/BoostModel_FeatureImpact.PNG" style="display:block; margin: 0 auto" alt="alt text">
                 <br>
                 <br>
-                Boost Model Feature Summary 
+                <h5>Boost Model Feature Summary </h5>
                   <img src="../static/images/BoostModel_FeatureSummary.PNG" style="display:block; margin: 0 auto" alt="alt text">
                 <br>
                 <br>
-                Shapley Force - Jaromir Jagr  
+                <h5>Shapley Force - Jaromir Jagr  </h5>
+                
                   <img src="../static/images/Jaromir Jagr.PNG" style="display:block; margin: 0 auto" alt="alt text">
                 <br>
                 <img src="../static/images/Jagr.gif" style="display:block; margin: 0 auto" alt="alt text">
-                <br>        
+                <br>
+                -The <b>output value</b> is the prediction for that observation (the prediction for this observation is 10.56).
+                -The <b>base value</b>: The original paper explains that the base value E(y_hat) is “the value that would be predicted if we did not know 
+                  any features for the current output.” In other words, it is the mean prediction, or mean(yhat). You may wonder why it is -4.187. 
+                  This is because the mean prediction of Y_test is -4.187. You can test it out by Y_test.mean() which produces -4.187.
+                -<b>Red/blue</b>: Features that push the prediction higher (to the right) are shown in red, and those pushing the prediction lower are in blue.
+                -The plot is centered on the x-axis at explainer.expected_value. All SHAP values are relative to the model's expected value like a linear model's 
+                  effects are relative to the intercept.<br>
+                  Source: https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a
+                  <br>        
+                  
                   [Top 10 eligible image]
                 [Bottom 10 inductees image]
 
