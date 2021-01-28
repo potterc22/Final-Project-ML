@@ -87,7 +87,7 @@
                   the model to check the output for players who were already in the Hall of Fame, the players that were overlooked, and players 
                   that were not eligible but should be in the Hall. The model provided HoF probabilities less than 68% for 10 current HoF inductees. 
                   Since the HoF selection committee focuses on more than stats, we concluded that there are factors not captured by our model 
-                  (College career, coaching career, Olympic career etc.)
+                  (College career, coaching career, Olympic career etc.)</p>
                 <br>
                 <br>
                 <h5>Dataset Class Split  </h5>
@@ -117,33 +117,47 @@
                   <li><b>Red/blue</b>: Features that push the prediction higher (to the right) are shown in red, and those pushing the prediction lower are in blue.</li>
                   <li>The plot is centered on the x-axis at explainer.expected_value. All SHAP values are relative to the model's expected value like a linear model's 
                   effects are relative to the intercept.</li>
-                  <li>Source: <a>https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a</a></li>
+                  <li>Source: <a href="https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a">https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a</a></li>
                 </ul>
                   <br>        
                   <img src="../static/images/SteveYzerman_BoostModel.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br><br>
                   <img src="../static/images/SteveYzerman_ForestModel.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br><br>
 
-
-                  <img src="../static/images/Lowest_Prob.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br>
-                  <img src="../static/images/Best_Prob.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br>
-                  <img src="../static/images/Best_Prob_Active.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br>
-                  <img src="../static/images/Best_Prob_Rookies.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br>
-                [Bottom 10 inductees image]
-
-                </p>
-                <br>
-                <h4>Future Considerations</h4>
-                <ul>
-                    <li>Expand data set to include other leagues, Olympics/World Cup and playoff stats</li>
-                    <li>Include goaltenders and the ability to predict by any position</li>
-                    <li>Ability to click a table header to filter the table by that field.</li>
-                    <li>Ability to search by a team to see all of their players.</li>
-                    <li>Add interactive shapley value visuals.</li>
-                    <li>Ability to trend current players to predict HoF probability at end of their career.</li>
-                    
-                </ul>
-                <br>
             </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <img src="../static/images/Lowest_Prob.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br>
+          </div>
+          <div class="col-md-6">
+            <img src="../static/images/Best_Prob.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="../static/images/Best_Prob_Active.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br>
+          </div>
+          <div class="col-md-6">
+            <img src="../static/images/Best_Prob_Rookies.PNG" style="display:block; margin: 0 auto" alt="alt text"> <br>
+          </div> 
+        </div>        
+
+        <div class="row">
+          <div class="col-md-12">
+            <br>
+            <h4>Future Considerations</h4>
+            <ul>
+                <li>Expand data set to include other leagues, Olympics/World Cup and playoff stats</li>
+                <li>Include goaltenders and the ability to predict by any position</li>
+                <li>Ability to click a table header to filter the table by that field.</li>
+                <li>Ability to search by a team to see all of their players.</li>
+                <li>Add interactive shapley value visuals.</li>
+                <li>Ability to trend current players to predict HoF probability at end of their career.</li>
+                    
+            </ul>
+            <br>
+          </div>
         </div>
     </div>
 
