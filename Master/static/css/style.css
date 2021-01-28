@@ -89,3 +89,7 @@ table {
 hr {
     border: 1px solid black;
 }
+img {
+    width: 100%;
+    height: 100%;
+  }
